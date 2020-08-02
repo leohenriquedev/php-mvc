@@ -1,0 +1,16 @@
+{
+    "name": "leonardo/php-mvc",
+    "authors": [
+        {
+            "name": "Leonardo Henrique",
+            "email": "heenriqueleo@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Source\\": "source/"
+        }
+    },
+    "require": {
+    }
+}
