@@ -1,24 +1,27 @@
 <?php
 use Source\Classes\Route;
 use Source\Classes\Controller;
+
+// Controllers
 use Source\Controllers\UserController;
 
+// System Routes
 Route::set("GET", "/login", function() {
-    // Controller::view("login", []);
-    echo "login route";
+    Controller::view("system/login", []);
 });
-
 Route::set("GET", "/", function() {
-    echo "home route";
+    Controller::view("home", []);
 });
 
+// User Routes
 Route::set("GET", "/users", function() {
     UserController::listAll();
-    // echo "users route";
 });
-
-Route::set("POST", "/users/create", function() {
-    echo "users/create route";
+Route::set("GET", "/users/new", function() {
+    Controller::view("user/new", []);
+});
+Route::set("GET", "/users/create", function() {
+    UserController::create();
 });
 
 ?>
