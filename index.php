@@ -7,4 +7,5 @@ Controller::view("includes/header", ["title" => "php-mvc"]);
 require_once "routes.php";
 Controller::view("includes/footer", []);
 
+
 ?>
