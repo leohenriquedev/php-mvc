@@ -3,21 +3,21 @@ use Source\Classes\Route;
 use Source\Classes\Controller;
 use Source\Controllers\UserController;
 
-Route::set("/login", function() {
+Route::set("GET", "/login", function() {
     // Controller::view("login", []);
     echo "login route";
 });
 
-Route::set("/", function() {
+Route::set("GET", "/", function() {
     echo "home route";
 });
 
-Route::set("/users", function() {
+Route::set("GET", "/users", function() {
     UserController::listAll();
     // echo "users route";
 });
 
-Route::set("/users/create", function() {
+Route::set("POST", "/users/create", function() {
     echo "users/create route";
 });
 
