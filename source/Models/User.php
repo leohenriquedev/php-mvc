@@ -5,22 +5,18 @@ use Source\Models\Database;
 
 class User extends Database {
 
-    public function findAll() {
-        // try {
-        //     $sql = "SELECT * FROM users";
-            
-		// 	$stmt = $this->connect()->prepare($sql);
-		// 	$stmt->execute();
-		// 	return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-		// } catch(PDOException $ex){
-		// 	echo "Error: ".$ex->getMessage();
-        // }
+    public static function findAll() {
         
-        return [
-            "name" => "Leonardo",
-            "age" => 22
-        ];
+        try {
+            $sql = "SELECT * FROM users";
+			$stmt = parent::connect()->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+			return $result;
+
+		} catch(PDOException $ex){
+			echo "Error: ".$ex->getMessage();
+        }
         
     }
 

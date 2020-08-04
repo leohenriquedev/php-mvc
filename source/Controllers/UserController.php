@@ -10,7 +10,7 @@ class UserController extends User {
         // User::insert($_POST);
         // $data = User::findAll();
         // Controller::view("user/all", $data);
-        Controller::redirect("/");
+        Controller::redirect("/users");
     }
 
     public static function listAll() {

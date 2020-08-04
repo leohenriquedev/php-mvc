@@ -20,7 +20,7 @@ Route::set("GET", "/users", function() {
 Route::set("GET", "/users/new", function() {
     Controller::view("user/new", []);
 });
-Route::set("GET", "/users/create", function() {
+Route::set("POST", "/users/create", function() {
     UserController::create();
 });
 

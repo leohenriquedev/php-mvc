@@ -1,11 +1,13 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', true);
+
 session_start();
 require_once "vendor/autoload.php";
-use Source\Classes\Controller;
+require_once "config.php";
 
-// Controller::view("includes/header", ["title" => "API"]);
-require_once "routes.php";
-// Controller::view("includes/footer", []);
+use Source\Classes\App;
 
+App::init();
 
 ?>
