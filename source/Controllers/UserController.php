@@ -7,9 +7,7 @@ use Source\Models\User;
 class UserController extends User {
 
     public static function create() {
-        // User::insert($_POST);
-        // $data = User::findAll();
-        // Controller::view("user/all", $data);
+        User::insert($_POST);
         Controller::redirect("/users");
     }
 
