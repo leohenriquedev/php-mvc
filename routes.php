@@ -6,21 +6,21 @@ use Source\Classes\Controller;
 use Source\Controllers\UserController;
 
 // System Routes
-Route::set("GET", "/login", function() {
+Route::set("GET", "/login", false, function() {
     Controller::view("system/login", []);
 });
-Route::set("GET", "/", function() {
+Route::set("GET", "/", true, function() {
     Controller::view("home", []);
 });
 
 // User Routes
-Route::set("GET", "/users", function() {
+Route::set("GET", "/users", true, function() {
     UserController::listAll();
 });
-Route::set("GET", "/users/new", function() {
+Route::set("GET", "/users/new", true, function() {
     Controller::view("user/new", []);
 });
-Route::set("POST", "/users/create", function() {
+Route::set("POST", "/users/create", true, function() {
     UserController::create();
 });
 

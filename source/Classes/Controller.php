@@ -12,6 +12,7 @@ class Controller {
         $root_path = explode("/", $_SERVER["REQUEST_URI"])[1];
         header("location: /".ROOT_DIR."{$route}");
     }
+
 }
 
 ?>

@@ -7,7 +7,9 @@ require_once "vendor/autoload.php";
 require_once "config.php";
 
 use Source\Classes\App;
+use Source\Classes\Route;
 
 App::init();
+
 
 ?>
