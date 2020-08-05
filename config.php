@@ -3,7 +3,7 @@
 define("DATABASE", [
     "hostname" => "localhost",
     "database" => "php-mvc",
-    "username" => "root",
+    "username" => "leonardo",
     "password" => ""
 ]);
 
