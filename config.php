@@ -2,7 +2,7 @@
 
 define("BASE_API", "/api");
 
-define("ROOT_DIR", explode("/", $_SERVER["REQUEST_URI"])[1]);
+define("BASE_DIR", explode("/", $_SERVER["REQUEST_URI"])[1]);
 
 define("JWT_KEY", "my_key");
 
@@ -18,7 +18,7 @@ define("JWT_PAYLOAD", [
 define("DATABASE", [
     "hostname" => "localhost",
     "database" => "php-mvc",
-    "username" => "root",
+    "username" => "leonardo",
     "password" => ""
 ]);
 

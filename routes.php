@@ -9,6 +9,11 @@ use Source\Controllers\UserController;
 Route::set("GET", "/login", false, function() {
     Controller::view("system/login", []);
 });
+
+Route::set("GET", "/forgot", false, function() {
+    // Controller::view("home", []);
+});
+
 Route::set("GET", "/", true, function() {
     Controller::view("home", []);
 });

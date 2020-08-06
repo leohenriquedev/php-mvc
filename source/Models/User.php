@@ -21,7 +21,7 @@ class User extends Database {
 			$stmt = parent::connect()->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-			return json_encode($result);
+			return $result;
 
 		} catch(PDOException $ex){
 			echo "Error: ".$ex->getMessage();
