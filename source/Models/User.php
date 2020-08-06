@@ -36,7 +36,33 @@ class User extends Database {
             $stmt->execute();
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return json_encode($result);
-            
+
+        } catch (PDOException $ex) {
+            echo "Error: ".$ex->getMessage();
+        }
+    }
+
+    public static function edit($data) {
+        try {
+            $sql = "UPDATE users SET name = :name, age = :age WHERE id = :id";
+            $stmt = parent::connect()->prepare($sql);
+            $stmt->bindParam(":id", $data["id"], \PDO::PARAM_INT);
+            $stmt->bindParam(":id", $data["name"], \PDO::PARAM_STR);
+            $stmt->bindParam(":id", $data["age"], \PDO::PARAM_INT);
+            $stmt->execute();
+
+        } catch (PDOException $ex) {
+            echo "Error: ".$ex->getMessage();
+        }
+    }
+
+    public static function delete($id) {
+        try {
+            $sql = "DELETE FROM users WHERE id = :id";
+            $stmt = parent::connect()->prepare($sql);
+            $stmt->bindParam(":id", $id, \PDO::PARAM_INT);
+            $stmt->execute();
+
         } catch (PDOException $ex) {
             echo "Error: ".$ex->getMessage();
         }
