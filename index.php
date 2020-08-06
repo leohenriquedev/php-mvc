@@ -11,5 +11,4 @@ use Source\Classes\Route;
 
 App::init();
 
-
 ?>
