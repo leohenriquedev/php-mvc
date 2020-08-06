@@ -16,6 +16,12 @@ class UserController extends User {
         // Controller::view("user/all", $data);
         echo $data;
     }
+
+    public static function listBy() {
+        $data = User::findBy(2);
+        // Controller::view("user/all", $data);
+        echo $data;
+    }
 }
 
 ?>

@@ -28,9 +28,21 @@ class User extends Database {
         }
     }
 
-    public function test() {
-        echo "ok";
+    public static function findBy($id) {
+        try {
+            $sql = "SELECT * FROM users WHERE id = :id";
+            $stmt = parent::connect()->prepare($sql);
+            $stmt->bindParam(":id", $id, \PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return json_encode($result);
+            
+        } catch (PDOException $ex) {
+            echo "Error: ".$ex->getMessage();
+        }
     }
+
+    
 }
 
 

@@ -15,8 +15,11 @@ Route::set("GET", "/", true, function() {
 
 // User Routes
 Route::set("GET", "/users", true, function() {
-    UserController::listAll();
+    // UserController::listAll();
+    UserController::listBy();
 });
+
+
 Route::set("GET", "/users/new", true, function() {
     Controller::view("user/new", []);
 });
