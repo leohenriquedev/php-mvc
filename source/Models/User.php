@@ -9,7 +9,9 @@ class User extends Database {
         try {
             $sql = "INSERT INTO users(name, age) VALUES(:name, :age)";
             $stmt = parent::connect()->prepare($sql);
-            $stmt->execute($data);
+            $stmt->bindParam(":name", $data["name"], \PDO::PARAM_STR);
+            $stmt->bindParam(":age", $data["age"], \PDO::PARAM_INT);
+            $stmt->execute();
         } catch(PDOException $ex) {
             echo "Error: ".$ex->getMessage();
         }
@@ -46,9 +48,9 @@ class User extends Database {
         try {
             $sql = "UPDATE users SET name = :name, age = :age WHERE id = :id";
             $stmt = parent::connect()->prepare($sql);
-            $stmt->bindParam(":id", $data["id"], \PDO::PARAM_INT);
             $stmt->bindParam(":id", $data["name"], \PDO::PARAM_STR);
             $stmt->bindParam(":id", $data["age"], \PDO::PARAM_INT);
+            $stmt->bindParam(":id", $data["id"], \PDO::PARAM_INT);
             $stmt->execute();
 
         } catch (PDOException $ex) {
@@ -68,7 +70,6 @@ class User extends Database {
         }
     }
 
-    
 }
 
 

@@ -4,18 +4,18 @@ use Source\Classes\Controller;
 
 // Controllers
 use Source\Controllers\UserController;
+use Source\Controllers\SessionController;
 
 // System Routes
-Route::set("GET", "/login", false, function() {
+Route::set("GET", "/", false, function() {
     Controller::view("system/login", []);
 });
-
-Route::set("GET", "/forgot", false, function() {
-    // Controller::view("home", []);
+Route::set("POST", "/login", false, function() {
+    SessionController::login();
 });
 
-Route::set("GET", "/", true, function() {
-    Controller::view("home", []);
+Route::set("POST", "/logout", false, function() {
+    SessionController::logout();
 });
 
 // User Routes
