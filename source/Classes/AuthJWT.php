@@ -9,14 +9,15 @@ class AuthJWT {
 
     public static function generate($id) {
         // PUT $id in JWT_KEY
-        self::$token = JWT::encode(JWT_PAYLOAD, JWT_KEY);
+        self::$token = "Bearer " . JWT::encode(JWT_PAYLOAD, JWT_KEY);
         return self::$token;
     }
 
     public static function verify($headers) {
 
         $token_session = TOKEN_TEST;
-        if(isset($token_session) && isset($headers["Authorization"])) {
+        
+        if(isset($headers["Authorization"])) {
 
             self::$token = TOKEN_TEST;
             $authorization = "Bearer ".self::$token;
@@ -24,13 +25,13 @@ class AuthJWT {
             if($authorization == $headers["Authorization"]) {
                 $response = [
                     "auth" => true,
-                    "message" => "The provided token is correct!"
+                    "message" => "Success Token!"
                 ];
             }
-            else {
+            else{
                 $response = [
                     "auth" => false,
-                    "message" => "The provided token is incorrect!"
+                    "message" => "The provided token is incorrect"
                 ];
             }
         }

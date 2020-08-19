@@ -7,10 +7,17 @@ class User extends Database {
 
     public static function insert($data) {
         try {
-            $sql = "INSERT INTO users(name, age) VALUES(:name, :age)";
+            $sql = "INSERT INTO users(name, age, username, password) VALUES(:name, :age, :username, :password)";
             $stmt = parent::connect()->prepare($sql);
+
+            $usernameArray = explode(" ", $data["name"]);
+            $username = strtolower($usernameArray[0] . "." . array_pop($usernameArray));
+            $password_hash = password_hash($data["password"], PASSWORD_DEFAULT);
+
             $stmt->bindParam(":name", $data["name"], \PDO::PARAM_STR);
             $stmt->bindParam(":age", $data["age"], \PDO::PARAM_INT);
+            $stmt->bindParam(":username", $username, \PDO::PARAM_STR);
+            $stmt->bindParam(":password", $password_hash, \PDO::PARAM_STR);
             $stmt->execute();
         } catch(PDOException $ex) {
             echo "Error: ".$ex->getMessage();

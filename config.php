@@ -1,6 +1,6 @@
 <?php
 
-define("BASE_API", "/api");
+define("BASE_API", "");
 
 define("BASE_DIR", explode("/", $_SERVER["REQUEST_URI"])[1]);
 

@@ -17,19 +17,11 @@ class Route {
 
                 if($authJWT["auth"]) {
                     $callback->__invoke();
-
-                    echo json_encode([
-                        "auth" => $authJWT["auth"],
-                        "message" => $authJWT["message"],
-                        "data" => $_SESSION["data"]
-                    ]);
-                    unset($_SESSION["data"]);
                 }
                 else {
                     echo json_encode([
                         "auth" => $authJWT["auth"],
-                        "message" => $authJWT["message"],
-                        "data" => []
+                        "message" => $authJWT["message"]
                     ]);
                 }
             }

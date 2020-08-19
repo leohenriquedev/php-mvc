@@ -9,7 +9,6 @@ class Controller {
     }
 
     public function redirect($route) {
-        $root_path = explode("/", $_SERVER["REQUEST_URI"])[1];
         header("location: /". BASE_DIR ."{$route}");
     }
 

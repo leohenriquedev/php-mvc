@@ -13,13 +13,12 @@ class UserController extends User {
 
     public static function listAll() {
         $data = User::findAll();
-        $_SESSION["data"] = $data;
+        Controller::view("user/all", $data);
     }
 
     public static function listBy() {
         $data = User::findBy(2);
-        // Controller::view("user/all", $data);
-        echo $data;
+        Controller::view("user/by", $data);
     }
 }
 

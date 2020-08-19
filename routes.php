@@ -19,16 +19,15 @@ Route::set("POST", "/logout", false, function() {
 });
 
 // User Routes
-Route::set("GET", "/users", true, function() {
-    // UserController::listAll();
-    UserController::listBy();
+Route::set("GET", "/users", false, function() {
+    UserController::listAll();
+    // UserController::listBy();
 });
 
-
-Route::set("GET", "/users/new", true, function() {
+Route::set("GET", "/users/new", false, function() {
     Controller::view("user/new", []);
 });
-Route::set("POST", "/users/create", true, function() {
+Route::set("POST", "/users/create", false, function() {
     UserController::create();
 });
 

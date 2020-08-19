@@ -18,6 +18,10 @@ class Database {
           }
     }
 
+    // public function __destruct() {
+    //     self::$pdo = null;
+    // }
+
 }
 
 

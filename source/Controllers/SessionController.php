@@ -7,6 +7,7 @@ use Source\Models\Session;
 class SessionController extends Session {
 
     public static function login() {
+
         if(Session::logIn($_POST)) {
             Controller::redirect("/users");
         }
@@ -16,6 +17,7 @@ class SessionController extends Session {
     }
 
     public static function logout() {
+        
         if(Session::logOut()) {
             Controller::redirect("/");
         }
